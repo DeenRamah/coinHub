@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading App Settings</title>
+<link rel="stylesheet" href="wow.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Trading App Settings</h1>
+    <div class="settings">
+        <div class="setting" id="fontSetting">
+            <img src="img/logo.png" alt="Font Icon">
+            <span>Change Font</span>
+        </div>
+        <div class="setting" id="nameSetting">
+            <img src="img/logo.png" alt="Name Icon">
+            <span>Change Name</span>
+        </div>
+        <div class="setting" id="locationSetting">
+            <img src="img/logo.png" alt="Location Icon">
+            <span>Change Location</span>
+        </div>
+        <div class="setting" id="currencySetting">
+            <img src="img/logo.png" alt="Currency Icon">
+            <span>Change Currency</span>
+        </div>
+        <!-- Add more settings here -->
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle">Change Font</h2>
+        <form id="settingsForm">
+            <!-- Dynamic form fields will be added here -->
+            <input type="submit" value="Save Changes">
+        </form>
+    </div>
+</div>
+
+<script src="wow.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fceabb; /* Light yellow */
+  }
+  
+  .cat-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .cat {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounceCat 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes bounceCat {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .ear {
+    width: 50px;
+    height: 50px;
+    background-color: #ffb3ba; /* Light red */
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+  }
+  
+  .left {
+    left: -20px;
+  }
+  
+  .right {
+    right: -20px;
+  }
+  
+  .head {
+    width: 100px;
+    height: 100px;
+    background-color: #ffb3ba; /* Light red */
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .eye {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .left .eye {
+    left: 20px;
+  }
+  
+  .right .eye {
+    right: 20px;
+  }
+  
+  .nose {
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    left: 45px;
+  }
+  
+  .mouth {
+    width: 40px;
+    height: 15px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 60px;
+    left: 30px;
+  }
+  
+  .body {
+    width: 120px;
+    height: 120px;
+    background-color: #ffb3ba; /* Light red */
+    border-radius: 50%;
+    position: relative;
+    margin-top: 30px;
+  }
+  
+  .tail {
+    width: 80px;
+    height: 20px;
+    background-color: #ffb3ba; /* Light red */
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    right: -20px;
+    transform: rotate(30deg);
+  }
+  
+  .leg {
+    width: 20px;
+    height: 60px;
+    background-color: #ffb3ba; /* Light red */
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .left .leg {
+    left: 30px;
+  }
+  
+  .right .leg {
+    right: 30px;
+  }
+  
+  .note-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: bounceNote 2s ease-in-out infinite alternate;
+  }
+  
+  .note {
+    width: 200px;
+    height: 100px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .message {
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translateX(-150%);
+    font-family: Arial, sans-serif;
+    font-size: 90px;
+  }
+  
+  @keyframes bounceNote {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+  

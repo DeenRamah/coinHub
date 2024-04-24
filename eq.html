@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Crypto Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    canvas {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label for="openTrade">Open Trade:</label>
+    <input type="number" id="openTrade" value="50" min="0" max="100">
+    <button id="openTradeButton">Open Trade</button>
+  </div>
+  <div>
+    <label for="closeTrade">Close Trade:</label>
+    <input type="number" id="closeTrade" value="50" min="0" max="100">
+    <button id="closeTradeButton">Close Trade</button>
+  </div>
+  <canvas id="cryptoChart" width="800" height="400"></canvas>
+
+  <script>
+    const labels = ['BNB', 'Bitcoin', 'Tether'];
+    const datasets = labels.map(label => {
+      return {
+        label: label,
+        borderColor: '#' + (Math.random().toString(16) + '000000').substring(2, 8),
+        backgroundColor: 'transparent',
+        data: Array.from({ length: 20 }, () => Math.floor(Math.random() * 100) + 1)
+      };
+    });
+
+    const ctx = document.getElementById('cryptoChart').getContext('2d');
+    const cryptoChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: Array.from({ length: 20 }, (_, i) => `Point ${i}`),
+        datasets: datasets
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    // Start the trade animation
+    function startTradeAnimation() {
+      const openTrade = parseInt(document.getElementById('openTrade').value);
+      const closeTrade = parseInt(document.getElementById('closeTrade').value);
+
+      setInterval(() => {
+        const newData = datasets.map(dataset => {
+          const newDataPoints = dataset.data.map(() => {
+            const randomChange = Math.floor(Math.random() * 3) - 1; // Randomly go up, down, or stay the same
+            return dataset.label === 'BNB' ? openTrade + randomChange : (dataset.label === 'Bitcoin' ? 50 + randomChange : closeTrade + randomChange);
+          });
+          return { ...dataset, data: newDataPoints };
+        });
+
+        cryptoChart.data.datasets = newData;
+        cryptoChart.update();
+      }, 1000); // Update every 1 second
+    }
+
+    // Event listener for open trade button
+    const openTradeButton = document.getElementById('openTradeButton');
+    openTradeButton.addEventListener('click', startTradeAnimation);
+
+    // Event listener for close trade button
+    const closeTradeButton = document.getElementById('closeTradeButton');
+    closeTradeButton.addEventListener('click', startTradeAnimation);
+  </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Wallet</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        overflow: hidden; /* To prevent scrolling */
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        position: relative; /* Relative positioning for absolute elements */
+    }
+    .background-character {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 150px;
+        z-index: -1; /* Behind other elements */
+        animation: characterAnimation 10s linear infinite alternate;
+    }
+    @keyframes characterAnimation {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .currency-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    .currency-list li {
+        padding: 10px;
+        margin-bottom: 5px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .currency-list li:hover {
+        background-color: #e0e0e0;
+    }
+    .currency-name {
+        flex: 1;
+    }
+    .currency-balance {
+        margin-left: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Virtual Wallet</h1>
+    <ul class="currency-list">
+        <li class="currency">
+            <span class="currency-name">Bitcoin</span>
+            <span class="currency-balance">BTC 234</span>
+        </li>
+        <li class="currency">
+            <span class="currency-name">Ethereum</span>
+            <span class="currency-balance">ETH 567</span>
+        </li>
+        <li class="currency">
+            <span class="currency-name">BNB</span>
+            <span class="currency-balance">BNB 564</span>
+        </li>
+        <li class="currency">
+            <span class="currency-name">AUD</span>
+            <span class="currency-balance">AUD 345</span>
+        </li>
+        <li class="currency">
+            <span class="currency-name">USD</span>
+            <span class="currency-balance">USD 890</span>
+        </li>
+        <li class="currency">
+            <span class="currency-name">KES</span>
+            <span class="currency-balance">KES 1234</span>
+        </li>
+        <li class="currency">
+            <span class="currency-name">JPY</span>
+            <span class="currency-balance">JPY 6789</span>
+        </li>
+    </ul>
+    <img class="background-character" src="https://via.placeholder.com/150" alt="Cartoon character">
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currencies = document.querySelectorAll('.currency');
+        currencies.forEach(currency => {
+            currency.addEventListener('mouseover', function() {
+                this.style.transform = 'translateX(10px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            currency.addEventListener('mouseout', function() {
+                this.style.transform = 'translateX(0)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+        });
+    });
+</script>
+</body>
+</html>
